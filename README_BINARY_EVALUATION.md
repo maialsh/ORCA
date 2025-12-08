@@ -1,10 +1,10 @@
-# BinSleuth Binary Evaluation System
+# ORCA Binary Evaluation System
 
-This system evaluates BinSleuth's ability to detect real binary capabilities when given misleading functionality descriptions.
+This system evaluates ORCA's ability to detect real binary capabilities when given misleading functionality descriptions.
 
 ## 🎯 Evaluation Objective
 
-Test whether BinSleuth can correctly identify what binaries actually do (e.g., "packet capture") even when told they do something completely different (e.g., "image editor").
+Test whether ORCA can correctly identify what binaries actually do (e.g., "packet capture") even when told they do something completely different (e.g., "image editor").
 
 ## 📋 System Overview
 
