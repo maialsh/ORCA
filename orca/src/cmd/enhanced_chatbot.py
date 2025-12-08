@@ -1,5 +1,5 @@
 """
-Enhanced Chatbot Module for BinSleuth
+Enhanced Chatbot Module for ORCA
 Implements comprehensive interactive chat interface with advanced workflows:
 1. List APIs used with state and static analysis context
 2. API usage analysis with cross-references and ASM instruction analysis
@@ -22,7 +22,7 @@ from api_crossrefs import ApiCrossReferenceTool
 from state import AnalysisState
 
 
-class EnhancedBinSleuthChatbot:
+class EnhancedOrcaChatbot:
     """
     Enhanced interactive chatbot for binary analysis with comprehensive workflows.
     Implements advanced API analysis, function analysis, and malware research capabilities.

@@ -1,15 +1,15 @@
-# BinSleuth CLI Tool
+# ORCA CLI Tool
 
-A simplified command-line interface for binary analysis using the BinSleuth framework.
+A simplified command-line interface for binary analysis using the ORCA framework.
 
 ## Overview
 
-The BinSleuth CLI tool provides a streamlined way to analyze binary files and determine their capabilities. It utilizes the comprehensive multi-agentic workflow from the BinSleuth framework to perform static analysis, API analysis, and capability identification.
+The ORCA CLI tool provides a streamlined way to analyze binary files and determine their capabilities. It utilizes the comprehensive multi-agentic workflow from the ORCA framework to perform static analysis, API analysis, and capability identification.
 
 ## Installation
 
 1. Ensure you have Python 3.8+ installed
-2. Install the required dependencies for BinSleuth (see binsleuth/requirements.txt)
+2. Install the required dependencies for ORCA (see orca/requirements.txt)
 3. Set up your OpenAI API key:
    ```bash
    export OPENAI_API_KEY="your-api-key-here"
@@ -20,7 +20,7 @@ The BinSleuth CLI tool provides a streamlined way to analyze binary files and de
 ### Basic Usage
 
 ```bash
-python binsleuth_cli.py -b <path_to_binary> -f <functionality> -o <results.json>
+python orca_cli.py -b <path_to_binary> -f <functionality> -o <results.json>
 ```
 
 ### Parameters
@@ -37,25 +37,25 @@ python binsleuth_cli.py -b <path_to_binary> -f <functionality> -o <results.json>
 #### Basic Capabilities Analysis
 
 ```bash
-python binsleuth_cli.py -b /path/to/binary -f "Text editor application" -o results.json
+python orca_cli.py -b /path/to/binary -f "Text editor application" -o results.json
 ```
 
 #### Comprehensive Analysis (Capabilities + Malware)
 
 ```bash
-python binsleuth_cli.py -b suspicious.exe -f "Unknown application" -o analysis.json --goal "capabilities and malware analysis"
+python orca_cli.py -b suspicious.exe -f "Unknown application" -o analysis.json --goal "capabilities and malware analysis"
 ```
 
 #### Verbose Output
 
 ```bash
-python binsleuth_cli.py -b app.bin -f "Network utility" -o output.json --verbose
+python orca_cli.py -b app.bin -f "Network utility" -o output.json --verbose
 ```
 
 #### Debug Mode
 
 ```bash
-python binsleuth_cli.py -b binary.elf -f "System tool" -o debug_results.json --debug
+python orca_cli.py -b binary.elf -f "System tool" -o debug_results.json --debug
 ```
 
 ## Analysis Goals
@@ -109,7 +109,7 @@ The tool generates a JSON file containing comprehensive analysis results:
     "filtered_functions_count": 15
   },
   "metadata": {
-    "binsleuth_version": "enhanced",
+    "orca_version": "enhanced",
     "total_steps_completed": 6,
     "analysis_successful": true
   }
@@ -154,7 +154,7 @@ The tool generates a JSON file containing comprehensive analysis results:
 Run the test suite to verify the tool works correctly:
 
 ```bash
-python test_binsleuth_cli.py
+python test_orca_cli.py
 ```
 
 This will test:
@@ -164,6 +164,8 @@ This will test:
 - Output file generation
 - Result validation
 
+*Note: Test file may need to be implemented*
+
 ## Troubleshooting
 
 ### Common Issues
@@ -171,12 +173,12 @@ This will test:
 1. **Import Errors**
 
    ```
-   Error importing BinSleuth modules
+   Error importing ORCA modules
    ```
 
    - Ensure you're running from the correct directory
    - Check that all dependencies are installed
-   - Verify the binsleuth/src/cmd directory exists
+   - Verify the orca/src/cmd directory exists
 
 2. **Binary Ninja Not Found**
 
@@ -207,7 +209,7 @@ This will test:
 Enable debug mode for detailed logging:
 
 ```bash
-python binsleuth_cli.py -b binary -f "description" -o results.json --debug
+python orca_cli.py -b binary -f "description" -o results.json --debug
 ```
 
 This will show:
@@ -227,13 +229,13 @@ The tool requires the following Python packages:
 - json
 - argparse
 
-Additional BinSleuth dependencies:
+Additional ORCA dependencies:
 
-- See binsleuth/requirements.txt for complete list
+- See orca/requirements.txt for complete list
 
 ## Architecture
 
-The CLI tool is built on top of the BinSleuth multi-agentic framework:
+The CLI tool is built on top of the ORCA multi-agentic framework:
 
 1. **Supervisor Agent**: Validates inputs and manages workflow
 2. **Planning Agent**: Creates analysis plan based on goals
@@ -270,11 +272,11 @@ Performance depends on:
 
 To extend the CLI tool:
 
-1. Modify the workflow in binsleuth/src/cmd/workflow.py
+1. Modify the workflow in orca/src/cmd/workflow.py
 2. Add new agents for specialized analysis
 3. Update the serialization logic for new result types
 4. Add tests for new functionality
 
 ## License
 
-This tool is part of the BinSleuth framework. See the main project license for details.
+This tool is part of the ORCA framework. See the main project license for details.

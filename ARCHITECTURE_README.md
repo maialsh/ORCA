@@ -26,10 +26,10 @@ The heart of ORCA is implemented in `workflow.py`, which defines a LangGraph-bas
 │   Analysis      │    │   Analysis      │    │     Agent       │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                                                         │
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Binary        │◀───│   Dynamic       │◀───│ API Analysis    │
-│   Summary       │    │   Analysis      │    │     Agent       │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+┌─────────────────┐                        ┌─────────────────┐
+│   Binary        │◀───────────────────────│ API Analysis    │
+│   Summary       │                        │     Agent       │
+└─────────────────┘                        └─────────────────┘
 ```
 
 ### 2. Workflow State Management
@@ -68,7 +68,6 @@ Each agent in the workflow has a specific responsibility:
 - **API Analysis Agent**: Filters and analyzes API usage patterns
 
 #### Specialized Analysis Agents
-- **Dynamic Analysis Agent**: Executes binaries in Docker sandbox
 - **Capabilities Analysis Agent**: Identifies binary capabilities using LLM
 - **Malware Analysis Agent**: Performs security assessment and threat analysis
 - **Binary Summary Agent**: Generates comprehensive analysis summaries
@@ -80,7 +79,7 @@ Each agent in the workflow has a specific responsibility:
 The main interface provides a comprehensive command-line experience:
 
 ```python
-class BinSleuthCLI(cmd.Cmd):
+class OrcaCLI(cmd.Cmd):
     # Interactive commands for binary analysis
     # Enhanced chatbot integration
     # Workflow execution and result management
@@ -155,7 +154,7 @@ The LLM handler provides robust AI integration:
 Centralized configuration system supporting:
 - LLM provider settings (model, API keys, rate limits)
 - Analysis parameters (file size limits, function limits)
-- Feature toggles (dynamic analysis, LLM analysis)
+- Feature toggles (LLM analysis)
 - Behavior pattern definitions
 - Environment variable overrides
 
@@ -237,10 +236,6 @@ class WorkflowState(TypedDict):
 - Fallback mechanisms for limited functionality
 - Cross-platform binary analysis support
 
-**Docker Sandbox Integration:**
-- Secure dynamic analysis execution
-- ELF analysis on macOS using containerized tools
-- Isolated malware execution environment
 
 ### 2. Enhanced String Analysis
 
@@ -262,7 +257,6 @@ Comprehensive API analysis through multiple specialized tools:
 Multi-layered security analysis:
 - **Static Indicators**: Suspicious imports, strings, functions
 - **Behavioral Analysis**: Function behavior pattern detection
-- **Dynamic Analysis**: Runtime behavior monitoring
 - **LLM Assessment**: AI-powered threat classification
 
 ## Integration Points
@@ -272,12 +266,7 @@ Multi-layered security analysis:
 - Function analysis and cross-reference generation
 - Symbol resolution and import/export extraction
 
-### 2. Docker Integration
-- Sandboxed execution environment
-- Cross-platform tool execution
-- Secure malware analysis
-
-### 3. LLM Providers
+### 2. LLM Providers
 - OpenAI GPT models (primary)
 - Extensible to other providers via LiteLLM
 - Adaptive token management and rate limiting
@@ -313,10 +302,10 @@ python main_enhanced.py --binary sample.exe --functionality "Text editor" --anal
 
 # Interactive mode
 python main_enhanced.py
-binsleuth> set_binary sample.exe
-binsleuth> set_functionality "Text editor application"
-binsleuth> analyze
-binsleuth> chat
+orca> set_binary sample.exe
+orca> set_functionality "Text editor application"
+orca> analyze
+orca> chat
 ```
 
 ### 2. Programmatic Integration
@@ -357,20 +346,20 @@ chat> malware analysis            # Security assessment
 
 ## Security Considerations
 
-### 1. Sandboxed Execution
-- Docker-based isolation for dynamic analysis
-- Restricted file system access
-- Network isolation capabilities
-
-### 2. Input Validation
+### 1. Input Validation
 - File type verification
 - Size limit enforcement
 - Path traversal protection
 
-### 3. Output Sanitization
+### 2. Output Sanitization
 - Safe handling of binary content
 - Secure temporary file management
 - Controlled LLM output processing
+
+### 3. Static Analysis Security
+- No binary execution during analysis
+- Safe disassembly and parsing
+- Controlled string extraction and processing
 
 ## Extensibility
 
@@ -393,6 +382,6 @@ The architecture supports extension through:
 
 ## Conclusion
 
-BinSleuth represents a sophisticated approach to binary analysis that combines traditional reverse engineering techniques with modern AI capabilities. The multi-agentic architecture provides flexibility, scalability, and comprehensive analysis capabilities while maintaining usability through enhanced interactive interfaces.
+ORCA represents a sophisticated approach to binary analysis that combines traditional reverse engineering techniques with modern AI capabilities. The multi-agentic architecture provides flexibility, scalability, and comprehensive analysis capabilities while maintaining usability through enhanced interactive interfaces.
 
 The system's modular design allows for easy extension and customization while providing robust error handling and graceful degradation. The integration of LLM capabilities enhances traditional static analysis with intelligent pattern recognition and contextual understanding, making it a powerful tool for both security researchers and malware analysts.
