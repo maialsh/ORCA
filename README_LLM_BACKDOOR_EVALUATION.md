@@ -1,6 +1,6 @@
 # LLM-Based Backdoor Detection Evaluation
 
-This evaluation system uses Large Language Models (LLM) to analyze BinSleuth and CAPA outputs for sophisticated backdoor detection evaluation on the Rosa benchmark dataset.
+This evaluation system uses Large Language Models (LLM) to analyze ORCA and CAPA outputs for sophisticated backdoor detection evaluation on the Rosa benchmark dataset.
 
 ## 🎯 Overview
 
@@ -30,7 +30,7 @@ python run_llm_backdoor_evaluation.py
 ```
 
 This script automatically:
-1. 🔍 Searches for BinSleuth and CAPA result files
+1. 🔍 Searches for ORCA and CAPA result files
 2. 🎯 Identifies the best directories to use
 3. 🤖 Runs LLM analysis on all results
 4. 📊 Generates comprehensive evaluation metrics
@@ -39,14 +39,14 @@ This script automatically:
 ### Manual Directory Specification
 ```bash
 python llm_backdoor_evaluator.py \
-  --binsleuth-dir /path/to/binsleuth/results \
+  --orca-dir /path/to/orca/results \
   --capa-dir /path/to/capa/results \
   --output-dir custom_output_directory
 ```
 
 ## 🧠 LLM Analysis Process
 
-### For BinSleuth Results
+### For ORCA Results
 The LLM analyzes:
 - **Suspicious Strings**: Network-related strings, shell commands, suspicious file paths
 - **API Clustering**: "potentially_dangerous" clusters, networking/persistence APIs
@@ -66,11 +66,11 @@ The LLM examines:
 ### Core Results
 - `rq2_llm_backdoor_detection_results.tex` - **LaTeX tables ready for paper**
 - `detailed_llm_backdoor_evaluation.json` - Raw metrics and data
-- `binsleuth-llm_confusion_matrix.png` - Visual confusion matrix
+- `orca-llm_confusion_matrix.png` - Visual confusion matrix
 - `capa-llm_confusion_matrix.png` - Visual confusion matrix
 
 ### Detailed Analysis
-- `binsleuth_llm_results.csv` - **Individual classifications with LLM reasoning**
+- `orca_llm_results.csv` - **Individual classifications with LLM reasoning**
 - `capa_llm_results.csv` - **Individual classifications with LLM reasoning**
 
 ### Key Metrics Generated
@@ -89,7 +89,7 @@ The LLM examines:
 LLM-BASED BACKDOOR DETECTION EVALUATION RESULTS
 ======================================================================
 
-BinSleuth + LLM Performance:
+ORCA + LLM Performance:
   Accuracy:     0.875
   Precision:    0.833
   Recall:       0.909
@@ -104,7 +104,7 @@ CAPA + LLM Performance:
   Avg Confidence: 0.691
 
 Timing Comparison:
-  BinSleuth avg: 45.23s
+  ORCA avg: 45.23s
   CAPA avg:      2.18s
   Speed ratio:   20.75x
 
@@ -112,7 +112,7 @@ Timing Comparison:
 EXAMPLE LLM REASONING
 ==================================================
 
-BinSleuth Examples:
+ORCA Examples:
   Alpha-02: Analysis reveals network socket APIs, suspicious shell command strings...
   Beta-04: Detected process injection capabilities and registry persistence...
   Alpha-06: Found covert communication patterns and data exfiltration APIs...
@@ -141,7 +141,7 @@ CAPA Examples:
 
 ### File Requirements
 
-**BinSleuth Results** should contain:
+**ORCA Results** should contain:
 - `static_analysis` section with strings analysis
 - `api_clustering` with security assessments
 - `malware_analysis_results` with threat levels
@@ -153,7 +153,7 @@ CAPA Examples:
 
 ### LLM Integration
 
-The system automatically tries to use BinSleuth's LLM module:
+The system automatically tries to use ORCA's LLM module:
 ```python
 from llm_module import LLMModule
 from config import Config
@@ -164,7 +164,7 @@ If unavailable, falls back to intelligent keyword-based analysis.
 ### Customization
 
 You can customize the evaluation by:
-- Modifying prompt templates in `create_binsleuth_analysis_prompt()` or `create_capa_analysis_prompt()`
+- Modifying prompt templates in `create_orca_analysis_prompt()` or `create_capa_analysis_prompt()`
 - Adjusting backdoor indicator keywords in `_simulate_llm_analysis()`
 - Changing confidence thresholds and scoring weights
 
@@ -172,12 +172,12 @@ You can customize the evaluation by:
 
 ### No Results Found
 - Ensure JSON files contain `Alpha-XX` or `Beta-XX` in filenames
-- Check that BinSleuth files have expected keys (`static_analysis`, `api_clustering`, etc.)
+- Check that ORCA files have expected keys (`static_analysis`, `api_clustering`, etc.)
 - Verify CAPA files have `rules` and `meta` sections
 
 ### LLM Module Errors
 - The system will fall back to keyword analysis if LLM unavailable
-- Check BinSleuth configuration if you want full LLM analysis
+- Check ORCA configuration if you want full LLM analysis
 
 ### Performance Issues
 - LLM analysis can be slow - each result requires individual analysis
@@ -188,7 +188,7 @@ You can customize the evaluation by:
 
 This evaluation system is designed for academic research comparing binary analysis tools. The LaTeX output can be directly included in research papers, and the detailed CSV files provide full transparency for reproducibility.
 
-**Citation**: When using this evaluation methodology, please cite the appropriate BinSleuth and evaluation framework papers.
+**Citation**: When using this evaluation methodology, please cite the appropriate ORCA and evaluation framework papers.
 
 ---
 

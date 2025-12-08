@@ -1,14 +1,14 @@
-# BinSleuth Architecture Documentation
+# ORCA Architecture Documentation
 
 ## Overview
 
-BinSleuth is a sophisticated multi-agentic binary analysis framework that leverages Large Language Models (LLMs) and advanced static analysis techniques to provide comprehensive binary analysis capabilities. The system is built around a workflow-driven architecture using LangGraph for orchestrating multiple specialized analysis agents.
+ORCA is a sophisticated multi-agentic binary analysis framework that leverages Large Language Models (LLMs) and advanced static analysis techniques to provide comprehensive binary analysis capabilities. The system is built around a workflow-driven architecture using LangGraph for orchestrating multiple specialized analysis agents.
 
 ## Core Architecture
 
-### 1. Multi-Agentic Workflow System
+### Workflow Orchestration
 
-The heart of BinSleuth is implemented in `workflow.py`, which defines a LangGraph-based state machine that orchestrates multiple specialized agents:
+The heart of ORCA is implemented in `workflow.py`, which defines a LangGraph-based state machine that orchestrates multiple specialized agents:
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐

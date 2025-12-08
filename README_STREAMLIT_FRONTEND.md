@@ -1,6 +1,6 @@
-# BinSleuth Streamlit Frontend
+# ORCA Streamlit Frontend
 
-A comprehensive web interface for the BinSleuth binary analysis platform, providing an intuitive dashboard for uploading, analyzing, and exploring binary files with advanced AI-powered insights.
+A comprehensive web interface for the ORCA binary analysis platform, providing an intuitive dashboard for uploading, analyzing, and exploring binary files with advanced AI-powered insights.
 
 ## Features
 
@@ -18,7 +18,7 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
   - Binary name and functionality description
   - Selectable analysis goals (capabilities, malware analysis, comprehensive analysis)
 - **Real-time Traces**: Live monitoring of analysis progress with detailed step-by-step traces
-- **Comprehensive Analysis**: Integrates with the full BinSleuth workflow including:
+- **Comprehensive Analysis**: Integrates with the full ORCA workflow including:
   - Static analysis
   - API cross-reference analysis
   - API clustering
@@ -83,7 +83,7 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
 
    ```bash
    git clone <repository-url>
-   cd binsleuth
+   cd orca
    ```
 
 2. **Install dependencies**:
@@ -98,8 +98,8 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
    export OPENAI_API_KEY="your-openai-api-key-here"
    ```
 
-4. **Ensure BinSleuth backend is properly configured**:
-   - Verify that the `binsleuth/src/cmd/` directory contains all necessary modules
+4. **Ensure ORCA backend is properly configured**:
+   - Verify that the `orca/src/cmd/` directory contains all necessary modules
    - Check that Binary Ninja is installed (if using enhanced features)
 
 ## Usage
@@ -177,9 +177,9 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
 
 ### Backend Integration
 
-- **BinSleuth Workflow**: Direct integration with the comprehensive analysis pipeline
+- **ORCA Workflow**: Direct integration with the comprehensive analysis pipeline
 - **Enhanced Chatbot**: Full access to the AI-powered analysis assistant
-- **Module System**: Seamless integration with all BinSleuth analysis modules
+- **Module System**: Seamless integration with all ORCA analysis modules
 
 ### Data Flow
 
@@ -205,9 +205,9 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
 
 ### Common Issues
 
-1. **"Failed to import BinSleuth modules"**:
+1. **"Failed to import ORCA modules"**:
 
-   - Ensure the `binsleuth/src/cmd/` directory exists and contains all required modules
+   - Ensure the `orca/src/cmd/` directory exists and contains all required modules
    - Check that all dependencies are installed: `pip install -r requirements_frontend.txt`
 
 2. **Analysis fails with errors**:
@@ -260,10 +260,10 @@ A comprehensive web interface for the BinSleuth binary analysis platform, provid
 For issues, questions, or contributions:
 
 1. Check the troubleshooting section above
-2. Review the BinSleuth CLI documentation for backend-related issues
+2. Review the ORCA CLI documentation for backend-related issues
 3. Ensure all dependencies are properly installed
 4. Verify environment variables are set correctly
 
 ## License
 
-This frontend is part of the BinSleuth project and follows the same licensing terms as the main project.
+This frontend is part of the ORCA project and follows the same licensing terms as the main project.
