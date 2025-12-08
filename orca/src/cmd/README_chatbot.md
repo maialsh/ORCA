@@ -1,8 +1,8 @@
-# BinSleuth Enhanced Chatbot Implementation
+# ORCA Enhanced Chatbot Implementation
 
 ## Overview
 
-The BinSleuth Enhanced Chatbot (`chatbot.py`) provides a comprehensive interactive chat interface for binary analysis with deep context from all analysis results. It integrates with the workflow system to use complete analysis data as a knowledge base.
+The ORCA Enhanced Chatbot (`chatbot.py`) provides a comprehensive interactive chat interface for binary analysis with deep context from all analysis results. It integrates with the workflow system to use complete analysis data as a knowledge base.
 
 ## Features
 
@@ -28,14 +28,14 @@ The chatbot integrates with multiple analysis modules:
 
 ## Class Structure
 
-### BinSleuthChatbot
+### ORCA Chatbot
 
 Main chatbot class that provides interactive analysis capabilities.
 
 #### Initialization
 
 ```python
-chatbot = BinSleuthChatbot(analysis_context=None)
+chatbot = ORCAChatbot(analysis_context=None)
 ```
 
 **Parameters:**
@@ -112,7 +112,7 @@ The chatbot can answer natural language questions such as:
 ### Basic Usage
 
 ```python
-from chatbot import BinSleuthChatbot, create_chatbot_with_context
+from chatbot import ORCAChatbot, create_chatbot_with_context
 
 # Create chatbot with analysis context
 analysis_context = {
@@ -188,7 +188,7 @@ analysis_context = {
 ### Optional Dependencies
 
 - Binary Ninja API (for enhanced code analysis)
-- Various analysis modules from the BinSleuth framework
+- Various analysis modules from the ORCA framework
 
 ## Error Handling
 
@@ -307,4 +307,4 @@ When extending the chatbot:
 
 ## License
 
-This module is part of the BinSleuth framework and follows the same licensing terms.
+This module is part of the ORCA framework and follows the same licensing terms.
