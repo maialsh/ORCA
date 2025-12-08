@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple test script for BinSleuth workflow
+Simple test script for ORCA workflow
 """
 import os
 import sys

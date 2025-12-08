@@ -23,7 +23,7 @@ else:
     print(f"Warning: Binary Ninja python API not found in expected folder: {BINARY_NINJA_PATH}")
     print("Will attempt to continue, but some functionality may be limited.")
 
-# Import BinSleuth modules
+# Import ORCA modules
 from config import config
 from llm_module import llm_handler
 from smart_static_analysis import SmartStaticAnalyzer

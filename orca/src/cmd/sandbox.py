@@ -3,7 +3,7 @@ import time
 from typing import Dict, Any, Optional
 # Configuration
 DOCKER_IMAGE = "ubuntu:22.04"  # Lightweight analysis container
-DOCKER_TAG = "binsleuth-sandbox"
+DOCKER_TAG = "orca-sandbox"
 SANDBOX_TIMEOUT = 30
 DYNAMIC_ANALYSIS_DIR = "/analysis"
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
