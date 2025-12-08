@@ -38,7 +38,7 @@ except ImportError as e:
 # Configure Streamlit page
 st.set_page_config(
     page_title="ORCA - Binary Analysis Platform",
-    page_icon="🔍",
+    page_icon="⚪",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -255,7 +255,7 @@ def run_analysis_workflow(binary_path: str, binary_name: str, binary_functionali
 
 def display_dashboard():
     """Display the main dashboard with analysis history and statistics"""
-    st.markdown('<h1 class="main-header">🔍 ORCA Dashboard</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> ORCA Dashboard</h1>', unsafe_allow_html=True)
     
     # Add circular image under the title with enhanced effects
     try:
@@ -284,7 +284,7 @@ def display_dashboard():
             </div>
         </div>
         <p style="text-align: center; color: #666; font-style: italic; margin-top: 1rem; animation: fadeIn 2s ease-in;">
-            🔬 Advanced Binary Analysis Platform for Security Professionals
+             Advanced Binary Analysis Platform for Security Professionals
         </p>
         <style>
             @keyframes float {{
@@ -303,7 +303,7 @@ def display_dashboard():
     # Add a welcome message with typing effect
     st.markdown("""
     <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
-        <h3 style="margin: 0; animation: slideInLeft 1s ease-out;">🚀 Welcome to ORCA</h3>
+        <h3 style="margin: 0; animation: slideInLeft 1s ease-out;"> Welcome to ORCA</h3>
         <p style="margin: 0.5rem 0 0 0; animation: slideInRight 1s ease-out;">Advanced platform for comprehensive binary capability and malware analysis</p>
     </div>
     """, unsafe_allow_html=True)
@@ -350,7 +350,7 @@ def display_dashboard():
     
     # Analysis history
     if st.session_state.analysis_history:
-        st.markdown('<div class="section-header">📊 Analysis History</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Analysis History</div>', unsafe_allow_html=True)
         
         # Create DataFrame for history
         history_data = []
@@ -369,7 +369,7 @@ def display_dashboard():
         
         # Analysis over time chart
         if len(history_data) > 1:
-            st.markdown('<div class="section-header">📈 Analysis Timeline</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-header"> Analysis Timeline</div>', unsafe_allow_html=True)
             
             # Convert timestamps for plotting
             timestamps = [datetime.fromisoformat(a['timestamp']) for a in st.session_state.analysis_history]
@@ -392,7 +392,7 @@ def display_dashboard():
 
 def display_upload_section():
     """Display binary upload and analysis configuration section"""
-    st.markdown('<div class="section-header">📁 Binary Upload & Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">Binary Upload & Analysis</div>', unsafe_allow_html=True)
     
     # File upload
     uploaded_file = st.file_uploader(
@@ -410,7 +410,7 @@ def display_upload_section():
         file_size = len(uploaded_file.getbuffer())
         file_hash = calculate_file_hash(file_path)
         
-        st.success(f"✅ File uploaded successfully: {uploaded_file.name}")
+        st.success(f" File uploaded successfully: {uploaded_file.name}")
         
         col1, col2 = st.columns(2)
         with col1:
@@ -446,7 +446,7 @@ def display_upload_section():
         )
         
         # Analysis button
-        if st.button("🚀 Start Analysis", type="primary", disabled=st.session_state.analysis_running):
+        if st.button(" Start Analysis", type="primary", disabled=st.session_state.analysis_running):
             if not binary_functionality.strip():
                 st.error("Please provide a description of the binary's functionality.")
             else:
@@ -462,7 +462,7 @@ def display_upload_section():
                     if analysis_result:
                         st.session_state.analysis_history.append(analysis_result)
                         st.session_state.current_analysis = analysis_result
-                        st.success("✅ Analysis completed successfully!")
+                        st.success(" Analysis completed successfully!")
                         st.rerun()
                     
                 st.session_state.analysis_running = False
@@ -470,7 +470,7 @@ def display_upload_section():
 def display_analysis_traces():
     """Display real-time analysis traces"""
     if st.session_state.analysis_traces:
-        st.markdown('<div class="section-header">🔍 Analysis Traces</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"> Analysis Traces</div>', unsafe_allow_html=True)
         
         traces_text = "\n".join(st.session_state.analysis_traces[-20:])  # Show last 20 traces
         st.markdown(f"""
@@ -492,7 +492,7 @@ def display_analysis_results():
     
     results = st.session_state.current_analysis.get('results', {})
     
-    st.markdown('<div class="section-header">📊 Analysis Results</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"> Analysis Results</div>', unsafe_allow_html=True)
     
     # Create 4 result segments
     col1, col2 = st.columns(2)
@@ -515,7 +515,7 @@ def display_binary_information_segment(results: Dict[str, Any]):
     """Display binary information segment"""
     st.markdown("""
     <div class="binary-info">
-        <h3>🔍 Binary Information</h3>
+        <h3> Binary Information</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -553,7 +553,7 @@ def display_api_analysis_segment(results: Dict[str, Any]):
     """Display API analysis segment"""
     st.markdown("""
     <div class="api-analysis">
-        <h3>🔧 API Analysis</h3>
+        <h3> API Analysis</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -585,7 +585,7 @@ def display_crossref_analysis_segment(results: Dict[str, Any]):
     """Display cross-reference analysis segment"""
     st.markdown("""
     <div class="crossref-analysis">
-        <h3>🔗 Cross-Reference Analysis</h3>
+        <h3> Cross-Reference Analysis</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -621,7 +621,7 @@ def display_cluster_analysis_segment(results: Dict[str, Any]):
     """Display cluster analysis segment"""
     st.markdown("""
     <div class="cluster-analysis">
-        <h3>🎯 Cluster Analysis</h3>
+        <h3> Cluster Analysis</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -662,7 +662,7 @@ def display_cluster_analysis_segment(results: Dict[str, Any]):
 
 def display_chatbot_interface():
     """Display interactive chatbot interface"""
-    st.markdown('<div class="section-header">💬 Interactive Chatbot</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"> Interactive Chatbot</div>', unsafe_allow_html=True)
     
     if not st.session_state.current_analysis:
         st.info("Please complete an analysis first to use the chatbot.")
@@ -683,7 +683,7 @@ def display_chatbot_interface():
     # Chat interface
     st.markdown("""
     <div class="chatbot-container">
-        <h4>🤖 Enhanced ORCA Assistant</h4>
+        <h4> Enhanced ORCA Assistant</h4>
         <p>Ask questions about your binary analysis results. Try commands like:</p>
         <ul>
             <li><code>list apis</code> - Show all APIs used</li>
@@ -726,7 +726,7 @@ def display_chatbot_interface():
 
 def display_function_analysis():
     """Display function analysis component"""
-    st.markdown('<div class="section-header">🔬 Function Analysis</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"> Function Analysis</div>', unsafe_allow_html=True)
     
     if not st.session_state.current_analysis:
         st.info("Please complete an analysis first to use function analysis.")
@@ -742,7 +742,7 @@ def display_function_analysis():
     
     st.markdown("""
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-        <h4>🔬 Function Analysis</h4>
+        <h4> Function Analysis</h4>
         <p>Select a function from the list below to get detailed analysis including assembly instructions and LLM-powered insights.</p>
     </div>
     """, unsafe_allow_html=True)
@@ -772,7 +772,7 @@ def display_function_analysis():
         selected_function_name = function_map[selected_function_display]
         
         # Analysis button
-        if st.button("🔍 Analyze Function", type="primary"):
+        if st.button(" Analyze Function", type="primary"):
             if st.session_state.chatbot is None:
                 st.error("Chatbot not initialized. Please ensure analysis is complete.")
                 return
@@ -783,14 +783,14 @@ def display_function_analysis():
                     response = st.session_state.chatbot.chat(f"analyze function {selected_function_name}")
                     
                     # Display the analysis results
-                    st.markdown("### 📊 Function Analysis Results")
+                    st.markdown("###  Function Analysis Results")
                     
                     # Create an expandable section for the full analysis
-                    with st.expander("🔍 Detailed Analysis", expanded=True):
+                    with st.expander(" Detailed Analysis", expanded=True):
                         st.markdown(response)
                     
                     # Try to extract specific information if available
-                    st.markdown("### 📋 Function Information")
+                    st.markdown("###  Function Information")
                     
                     # Find the selected function details
                     selected_func_details = None
@@ -821,22 +821,22 @@ def display_function_analysis():
                                 st.write("**Behavior Patterns:** None detected")
                     
                     # Additional analysis options
-                    st.markdown("### 🔧 Additional Analysis")
+                    st.markdown("###  Additional Analysis")
                     
                     col1, col2, col3 = st.columns(3)
                     
                     with col1:
-                        if st.button("🔗 Find API Usage"):
+                        if st.button(" Find API Usage"):
                             api_response = st.session_state.chatbot.chat(f"What APIs does function {selected_function_name} use?")
                             st.info(api_response)
                     
                     with col2:
-                        if st.button("⚠️ Security Analysis"):
+                        if st.button(" Security Analysis"):
                             security_response = st.session_state.chatbot.chat(f"What are the security implications of function {selected_function_name}?")
                             st.warning(security_response)
                     
                     with col3:
-                        if st.button("🎯 Purpose Analysis"):
+                        if st.button(" Purpose Analysis"):
                             purpose_response = st.session_state.chatbot.chat(f"What is the purpose of function {selected_function_name}?")
                             st.success(purpose_response)
                     
@@ -845,7 +845,7 @@ def display_function_analysis():
         
         # Show function preview
         if selected_function_display:
-            st.markdown("### 👁️ Function Preview")
+            st.markdown("###  Function Preview")
             
             # Find and display basic function info
             for func in functions:
@@ -856,7 +856,7 @@ def display_function_analysis():
 
 def display_search_components():
     """Display search and analysis components"""
-    st.markdown('<div class="section-header">🔍 Search & Analysis Tools</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"> Search & Analysis Tools</div>', unsafe_allow_html=True)
     
     if not st.session_state.current_analysis:
         st.info("Please complete an analysis first to use search tools.")
@@ -866,7 +866,7 @@ def display_search_components():
     static_results = results.get('static_analysis_results', {})
     
     # Search tabs
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔍 String Search", "🔧 API Search", "📋 Function Search", "⚠️ Suspicious Analysis", "🔬 Function Analysis"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([" String Search", " API Search", " Function Search", " Suspicious Analysis", " Function Analysis"])
     
     with tab1:
         st.subheader("String Search")
@@ -957,19 +957,19 @@ def main():
     initialize_session_state()
     
     # Sidebar navigation with buttons
-    st.sidebar.title("🔍 ORCA")
+    st.sidebar.title(" ORCA")
     st.sidebar.markdown("---")
     
     # Navigation buttons
-    st.sidebar.markdown("### 🧭 Navigation")
+    st.sidebar.markdown("###  Navigation")
     
     # Create navigation buttons
     nav_buttons = {
-        "🏠 Dashboard": "Dashboard",
-        "📁 Upload & Analyze": "Upload & Analyze", 
-        "📊 Analysis Results": "Analysis Results",
-        "💬 Chatbot": "Chatbot",
-        "🔍 Search Tools": "Search Tools"
+        " Dashboard": "Dashboard",
+        "Upload & Analyze": "Upload & Analyze",
+        " Analysis Results": "Analysis Results",
+        " Chatbot": "Chatbot",
+        " Search Tools": "Search Tools"
     }
     
     # Initialize page state if not exists
@@ -1000,17 +1000,17 @@ def main():
         
         # Quick actions
         st.sidebar.markdown("### Quick Actions")
-        if st.sidebar.button("🔄 New Analysis"):
+        if st.sidebar.button(" New Analysis"):
             st.session_state.current_analysis = None
             st.session_state.chatbot = None
             st.session_state.chat_history = []
             st.rerun()
         
-        if st.sidebar.button("💾 Export Results"):
+        if st.sidebar.button(" Export Results"):
             try:
                 results_json = json.dumps(analysis, indent=2, default=str)
                 st.sidebar.download_button(
-                    label="📥 Download JSON",
+                    label=" Download JSON",
                     data=results_json,
                     file_name=f"orca_analysis_{analysis.get('binary_name', 'unknown')}.json",
                     mime="application/json"
@@ -1022,7 +1022,7 @@ def main():
     if st.session_state.analysis_running or st.session_state.analysis_traces:
         st.sidebar.markdown("### Analysis Status")
         if st.session_state.analysis_running:
-            st.sidebar.info("🔄 Analysis in progress...")
+            st.sidebar.info(" Analysis in progress...")
         
         if st.session_state.analysis_traces:
             with st.sidebar.expander("Recent Traces", expanded=st.session_state.analysis_running):
@@ -1047,7 +1047,7 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #666; padding: 1rem;">
-        🔍 <strong>ORCA</strong> - Advanced Binary Analysis Platform<br>    </div>
+         <strong>ORCA</strong> - Advanced Binary Analysis Platform<br>    </div>
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
