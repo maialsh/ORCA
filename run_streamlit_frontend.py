@@ -25,10 +25,10 @@ def check_requirements():
         import streamlit
         import pandas
         import plotly
-        print("✅ All required dependencies are installed")
+        print("All required dependencies are installed")
         return True
     except ImportError as e:
-        print(f"❌ Missing dependency: {e}")
+        print(f"Missing dependency: {e}")
         print("Please install requirements: pip install -r requirements_frontend.txt")
         return False
 
@@ -46,18 +46,18 @@ def check_environment():
         issues.append(f"ORCA modules not found at {orca_path}")
     
     if issues:
-        print("⚠️  Environment issues detected:")
+        print("Environment issues detected:")
         for issue in issues:
             print(f"   - {issue}")
         print("\nThe frontend may not work properly without these.")
         return False
     
-    print("✅ Environment is properly configured")
+    print("Environment is properly configured")
     return True
 
 def main():
     """Main launcher function"""
-    print("🔍 ORCA Streamlit Frontend Launcher")
+    print("ORCA Streamlit Frontend Launcher")
     print("=" * 50)
     
     # Check requirements
@@ -74,7 +74,7 @@ def main():
             print("Exiting...")
             sys.exit(1)
     
-    print("\n🚀 Starting Streamlit frontend...")
+    print("\nStarting Streamlit frontend...")
     print("The application will open in your default browser")
     print("Press Ctrl+C to stop the server")
     print("-" * 50)
@@ -89,9 +89,9 @@ def main():
             "--browser.gatherUsageStats", "false"
         ])
     except KeyboardInterrupt:
-        print("\n\n👋 Shutting down ORCA frontend...")
+        print("\n\nShutting down ORCA frontend...")
     except Exception as e:
-        print(f"\n❌ Error starting frontend: {e}")
+        print(f"\nError starting frontend: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
