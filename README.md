@@ -229,7 +229,7 @@ ORCA/
 
 ## Contributing
 
-Contributions should follow standard software engineering practices. Submit pull requests with comprehensive testing and documentation.
+Contributions are welcome. Please open an issue to discuss proposed changes before submitting a pull request.
 
 ## License
 
