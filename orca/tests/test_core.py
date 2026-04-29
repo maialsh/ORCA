@@ -5,7 +5,7 @@ import pytest
 def test_config_defaults():
     from orca.core.config import OrcaConfig
     cfg = OrcaConfig()
-    assert cfg.get("llm.provider") == "anthropic"
+    assert cfg.get("llm.provider") == "openai"
     assert cfg.get("analysis.max_file_size") == 50 * 1024 * 1024
     assert cfg.get("nonexistent.key", "default") == "default"
 

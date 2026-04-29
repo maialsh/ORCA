@@ -7,10 +7,11 @@ from typing import Any, Dict, Optional
 
 DEFAULT_CONFIG = {
     "llm": {
-        "provider": "anthropic",
-        "model": "claude-sonnet-4-20250514",
+        "provider": "openai",
+        "model": "gpt-4o",
         "temperature": 0.1,
-        "max_tokens": 4096,
+        "top_p": 1.0,
+        "max_tokens": 2048,
         "timeout": 120,
         "retry_attempts": 7,
         "rate_limit_delay": 15,
